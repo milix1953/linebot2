@@ -106,9 +106,47 @@ def handle_message(event):
         message = TextSendMessage(text=msg)
         line_bot_api.reply_message(event.reply_token, message)
 
+# 處理 Postback 事件
 @handler.add(PostbackEvent)
-def handle_message(event):
-    print(event.postback.data)
+def handle_postback(event):
+    data = event.postback.data
+    user_id = event.source.user_id
+    
+    if "新增菜單" in data:
+        # 解析資料，獲取要新增的菜單項目資訊
+        menu_item_data = data.split(":")[1]  # 假設資料的格式為 "新增菜單:菜名"
+        
+        # 在這裡你可以將 menu_item_data 存入資料庫或其他儲存系統，實際操作可能更複雜，這僅是示例
+        # 假設我們將菜單項目存入一個列表中
+        user_menu = []
+        user_menu.append(menu_item_data)
+        
+        # 向使用者發送確認訊息
+        line_bot_api.reply_message(
+            event.reply_token,
+            {
+                "type": "text",
+                "text": f"{menu_item_data} 已成功新增到菜單。"
+            }
+        )
+    
+    elif "刪除菜單" in data:
+        # 解析資料，獲取要刪除的菜單項目資訊
+        menu_item_data = data.split(":")[1]  # 假設資料的格式為 "刪除菜單:菜名"
+        
+        # 在這裡你可以從資料庫或其他儲存系統中刪除指定的菜單項目
+        # 假設我們從 user_menu 列表中刪除菜單項目
+        if menu_item_data in user_menu:
+            user_menu.remove(menu_item_data)
+        
+        # 向使用者發送確認訊息
+        line_bot_api.reply_message(
+            event.reply_token,
+            {
+                "type": "text",
+                "text": f"{menu_item_data} 已成功從菜單中刪除。"
+            }
+        )
 
 
 @handler.add(MemberJoinedEvent)
