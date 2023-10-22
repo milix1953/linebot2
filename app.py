@@ -23,9 +23,10 @@ import  os
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi('iGhU1/Rlv9ySiOd8AYgvpzbWkU/QYm4vb208+Sj52xEQmFlIPL8HPusBmwc2wDOkieaTOUCPXBO7oDqkxTAMWNUXRm5uhUiV9tQipn+/eaYBCdA7V5X+//emxrwokGzGD3SBfHCcJI2odm9ejdToZgdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi(iGhU1/Rlv9ySiOd8AYgvpzbWkU/QYm4vb208+Sj52xEQmFlIPL8HPusBmwc2wDOkieaTOUCPXBO7oDqkxTAMWNUXRm5uhUiV9tQipn+/eaYBCdA7V5X+//emxrwokGzGD3SBfHCcJI2odm9ejdToZgdB04t89/1O/w1cDnyilFU=
+)
 # Channel Secret
-handler = WebhookHandler('a67c7851b0b0b079520dc8d4d70c994d')
+handler = WebhookHandler(a67c7851b0b0b079520dc8d4d70c994d)
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -43,32 +44,6 @@ def callback():
         abort(400)
     return 'OK'
 
-# 建立多頁訊息的每一頁
-carousel_template = CarouselTemplate(
-    columns=[
-        CarouselColumn(
-            thumbnail_image_url='https://example.com/image1.jpg',
-            title='Page 1',
-            text='This is page 1',
-            actions=[],
-        ),
-        CarouselColumn(
-            thumbnail_image_url='https://example.com/image2.jpg',
-            title='Page 2',
-            text='This is page 2',
-            actions=[],
-        ),
-        CarouselColumn(
-            thumbnail_image_url='https://example.com/image3.jpg',
-            title='Page 3',
-            text='This is page 3',
-            actions=[],
-        ),
-    ]
-)
-
-# 建立包含多頁訊息的 TemplateSendMessage
-carousel_message = TemplateSendMessage(alt_text='Carousel Template', template=carousel_template)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -131,9 +106,6 @@ def handle_message(event):
     else:
         message = TextSendMessage(text=msg)
         line_bot_api.reply_message(event.reply_token, message)
-
-
-
 
 @handler.add(PostbackEvent)
 def handle_message(event):
