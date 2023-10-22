@@ -43,6 +43,32 @@ def callback():
         abort(400)
     return 'OK'
 
+# 建立多頁訊息的每一頁
+carousel_template = CarouselTemplate(
+    columns=[
+        CarouselColumn(
+            thumbnail_image_url='https://example.com/image1.jpg',
+            title='Page 1',
+            text='This is page 1',
+            actions=[],
+        ),
+        CarouselColumn(
+            thumbnail_image_url='https://example.com/image2.jpg',
+            title='Page 2',
+            text='This is page 2',
+            actions=[],
+        ),
+        CarouselColumn(
+            thumbnail_image_url='https://example.com/image3.jpg',
+            title='Page 3',
+            text='This is page 3',
+            actions=[],
+        ),
+    ]
+)
+
+# 建立包含多頁訊息的 TemplateSendMessage
+carousel_message = TemplateSendMessage(alt_text='Carousel Template', template=carousel_template)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -105,6 +131,9 @@ def handle_message(event):
     else:
         message = TextSendMessage(text=msg)
         line_bot_api.reply_message(event.reply_token, message)
+
+
+
 
 @handler.add(PostbackEvent)
 def handle_message(event):
