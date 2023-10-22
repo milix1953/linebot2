@@ -108,8 +108,9 @@ def Carousel_Template():
             columns=[
                 CarouselColumn(
                     thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
-                    title='這是第一塊模板',
-                    text='一個模板可以有三個按鈕',
+                    title='清蒸鱈魚',
+                    text='急速低溫直送鱈魚片，使用一級醬汁及白醋和些許調味料製成。肉質柔軟細嫩',
+                    h5='$250',
                     actions=[
                         PostbackTemplateAction(
                             label='回傳一個訊息',
@@ -162,7 +163,141 @@ def Carousel_Template():
                             uri='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Number_3_in_yellow_rounded_square.svg/200px-Number_3_in_yellow_rounded_square.svg.png'
                         )
                     ]
-                )
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
+                    title='這是第一塊模板',
+                    text='一個模板可以有三個按鈕',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='回傳一個訊息',
+                            data='將這個訊息偷偷回傳給機器人'
+                        ),
+                        MessageTemplateAction(
+                            label='用戶發送訊息',
+                            text='我知道這是1'
+                        ),
+                        URITemplateAction(
+                            label='進入1的網頁',
+                            uri='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
+                    title='這是第一塊模板',
+                    text='一個模板可以有三個按鈕',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='回傳一個訊息',
+                            data='將這個訊息偷偷回傳給機器人'
+                        ),
+                        MessageTemplateAction(
+                            label='用戶發送訊息',
+                            text='我知道這是1'
+                        ),
+                        URITemplateAction(
+                            label='進入1的網頁',
+                            uri='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
+                    title='這是第一塊模板',
+                    text='一個模板可以有三個按鈕',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='回傳一個訊息',
+                            data='將這個訊息偷偷回傳給機器人'
+                        ),
+                        MessageTemplateAction(
+                            label='用戶發送訊息',
+                            text='我知道這是1'
+                        ),
+                        URITemplateAction(
+                            label='進入1的網頁',
+                            uri='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
+                    title='這是第一塊模板',
+                    text='一個模板可以有三個按鈕',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='回傳一個訊息',
+                            data='將這個訊息偷偷回傳給機器人'
+                        ),
+                        MessageTemplateAction(
+                            label='用戶發送訊息',
+                            text='我知道這是1'
+                        ),
+                        URITemplateAction(
+                            label='進入1的網頁',
+                            uri='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
+                    title='這是第一塊模板',
+                    text='一個模板可以有三個按鈕',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='回傳一個訊息',
+                            data='將這個訊息偷偷回傳給機器人'
+                        ),
+                        MessageTemplateAction(
+                            label='用戶發送訊息',
+                            text='我知道這是1'
+                        ),
+                        URITemplateAction(
+                            label='進入1的網頁',
+                            uri='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
+                    title='這是第一塊模板',
+                    text='一個模板可以有三個按鈕',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='回傳一個訊息',
+                            data='將這個訊息偷偷回傳給機器人'
+                        ),
+                        MessageTemplateAction(
+                            label='用戶發送訊息',
+                            text='我知道這是1'
+                        ),
+                        URITemplateAction(
+                            label='進入1的網頁',
+                            uri='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
+                    title='這是第一塊模板',
+                    text='一個模板可以有三個按鈕',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='回傳一個訊息',
+                            data='將這個訊息偷偷回傳給機器人'
+                        ),
+                        MessageTemplateAction(
+                            label='用戶發送訊息',
+                            text='我知道這是1'
+                        ),
+                        URITemplateAction(
+                            label='進入1的網頁',
+                            uri='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png'
+                        )
+                    ]
+                ),
+
             ]
         )
     )
