@@ -110,7 +110,7 @@ def Carousel_Template():
                     thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
                     title='清蒸鱈魚',
                     text='急速低溫直送鱈魚片，使用一級醬汁及白醋和些許調味料製成。肉質柔軟細嫩',
-                    h5='$250',
+                    text='$250',
                     actions=[
                         PostbackTemplateAction(
                             label='回傳一個訊息',
