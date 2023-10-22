@@ -109,19 +109,30 @@ def Carousel_Template():
                 CarouselColumn(
                     thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
                     title='清蒸鱈魚',
-                    text='急速低溫直送鱈魚片，使用一級醬汁及白醋和些許調味料製成。肉質柔軟細嫩\n<span style="font-weight: bold; color: red;">NT$100</span>',
+                    text='急速低溫直送鱈魚片，使用一級醬汁及白醋和些許調味料製成。肉質柔軟細嫩',
                     actions=[
                         PostbackTemplateAction(
-                            label='回傳一個訊息',
-                            data='將這個訊息偷偷回傳給機器人'
+                            label='加入菜單',
+                            data='新增菜單:清蒸鱈魚'
                         ),
-                        MessageTemplateAction(
-                            label='用戶發送訊息',
-                            text='我知道這是1'
+                        PostbackTemplateAction(
+                            label='移出菜單',
+                            data='刪除菜單:清蒸鱈魚'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png',
+                    title='清蒸鱈魚2',
+                    text='急速低溫直送鱈魚片，使用一級醬汁及白醋和些許調味料製成。肉質柔軟細嫩',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='加入菜單',
+                            data='新增菜單:清蒸鱈魚2'
                         ),
-                        URITemplateAction(
-                            label='進入1的網頁',
-                            uri='https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Number_1_in_green_rounded_square.svg/200px-Number_1_in_green_rounded_square.svg.png'
+                        PostbackTemplateAction(
+                            label='移出菜單',
+                            data='刪除菜單:清蒸鱈魚2'
                         )
                     ]
                 ),
