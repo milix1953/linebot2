@@ -20,7 +20,7 @@ from mongodb_function import *
 import  os
 #======python的函數庫==========
 
-user_menu = []
+user_menu = ["鮭魚"]
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
