@@ -20,13 +20,12 @@ from mongodb_function import *
 import  os
 #======python的函數庫==========
 
-user_menu = ["鮭魚"]
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi('iGhU1/Rlv9ySiOd8AYgvpzbWkU/QYm4vb208+Sj52xEQmFlIPL8HPusBmwc2wDOkieaTOUCPXBO7oDqkxTAMWNUXRm5uhUiV9tQipn+/eaYBCdA7V5X+//emxrwokGzGD3SBfHCcJI2odm9ejdToZgdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('你的Channel AcessToken')
 # Channel Secret
-handler = WebhookHandler('a67c7851b0b0b079520dc8d4d70c994d')
+handler = WebhookHandler('你的Channel Secret')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -49,25 +48,9 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    if '最新合作廠商' in msg:
-        message = imagemap_message()
-        line_bot_api.reply_message(event.reply_token, message)
-    elif '最新活動訊息' in msg:
-        message = buttons_message()
-        line_bot_api.reply_message(event.reply_token, message)
-    elif '註冊會員' in msg:
-        message = Confirm_Template()
-        line_bot_api.reply_message(event.reply_token, message)
-    elif '旋轉木馬' in msg:
+    if '旋轉木馬' in msg:
         message = Carousel_Template()
         line_bot_api.reply_message(event.reply_token, message)
-    elif '圖片畫廊' in msg:
-        message = test()
-        line_bot_api.reply_message(event.reply_token, message)
-    elif '功能列表' in msg:
-        message = function_list()
-        line_bot_api.reply_message(event.reply_token, message)
-
     #======MongoDB操作範例======
 
     elif '@讀取' in msg:
@@ -100,9 +83,7 @@ def handle_message(event):
         text = delete_all_data()
         message = TextSendMessage(text=text)
         line_bot_api.reply_message(event.reply_token, message)
-        
-    elif '菜單內容' in msg:
-        print(user_menu)
+
     #======MongoDB操作範例======
 
     else:
@@ -117,50 +98,30 @@ def handle_postback(event):
     
     if "新增菜單" in data:
         # 解析資料，獲取要新增的菜單項目資訊
-        menu_item_data = data.split(":")[1]  # 假設資料的格式為 "新增菜單:菜名"
+        menu_item_data = data.split(":")[1]
         
-        # 在這裡你可以將 menu_item_data 存入資料庫或其他儲存系統，實際操作可能更複雜，這僅是示例
-        # 假設我們將菜單項目存入一個列表中
-        user_menu.append(menu_item_data)
-        
+        # 使用之前提供的函數進行MongoDB操作
+        add_menu_item(user_id, menu_item_data)
+
         # 向使用者發送確認訊息
         line_bot_api.reply_message(
             event.reply_token,
-            {
-                "type": "text",
-                "text": f"{menu_item_data} 已成功新增到菜單。"
-            }
+            TextSendMessage(text=f"{menu_item_data} 已成功新增到菜單。")
         )
     
     elif "刪除菜單" in data:
         # 解析資料，獲取要刪除的菜單項目資訊
-        menu_item_data = data.split(":")[1]  # 假設資料的格式為 "刪除菜單:菜名"
-        
-        # 在這裡你可以從資料庫或其他儲存系統中刪除指定的菜單項目
-        # 假設我們從 user_menu 列表中刪除菜單項目
-        if menu_item_data in user_menu:
-            user_menu.remove(menu_item_data)
+        menu_item_data = data.split(":")[1]
+
+        # 使用之前提供的函數進行MongoDB操作
+        delete_menu_item(user_id, menu_item_data)
         
         # 向使用者發送確認訊息
         line_bot_api.reply_message(
             event.reply_token,
-            {
-                "type": "text",
-                "text": f"{menu_item_data} 已成功從菜單中刪除。"
-            }
+            TextSendMessage(text=f"{menu_item_data} 已成功從菜單中刪除。")
         )
 
-
-@handler.add(MemberJoinedEvent)
-def welcome(event):
-    uid = event.joined.members[0].user_id
-    gid = event.source.group_id
-    profile = line_bot_api.get_group_member_profile(gid, uid)
-    name = profile.display_name
-    message = TextSendMessage(text=f'{name}歡迎加入')
-    line_bot_api.reply_message(event.reply_token, message)
-        
-        
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
