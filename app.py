@@ -20,6 +20,7 @@ from mongodb_function import *
 import  os
 #======python的函數庫==========
 
+user_menu = []
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
@@ -120,7 +121,6 @@ def handle_postback(event):
         
         # 在這裡你可以將 menu_item_data 存入資料庫或其他儲存系統，實際操作可能更複雜，這僅是示例
         # 假設我們將菜單項目存入一個列表中
-        user_menu = []
         user_menu.append(menu_item_data)
         
         # 向使用者發送確認訊息
