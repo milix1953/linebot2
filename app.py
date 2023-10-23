@@ -99,7 +99,9 @@ def handle_message(event):
         text = delete_all_data()
         message = TextSendMessage(text=text)
         line_bot_api.reply_message(event.reply_token, message)
-
+        
+    elif '菜單內容' in msg:
+        print(user_menu)
     #======MongoDB操作範例======
 
     else:
