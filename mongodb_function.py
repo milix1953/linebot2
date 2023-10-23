@@ -2,11 +2,14 @@ import pymongo
 
 # 要獲得mongodb網址，請至mongodb網站申請帳號進行資料庫建立，網址　https://www.mongodb.com/
 # 獲取的網址方法之範例如圖： https://i.imgur.com/HLCk99r.png
-client = pymongo.MongoClient("mongodb+srv://40941125:madness3751@cluster0.qnilhoj.mongodb.net/?retryWrites=true&w=majority")
+client = pymongo.MongoClient("自己的mongodb連線網址")
 
 #第一個db的建立
 db = client['MongoClient']
 col = db['Database']
+
+# 為用戶菜單創建一個新的collection
+menu_col = db['UserMenu']
 
 #判斷key是否在指定的dictionary當中，若有則return True
 def dicMemberCheck(key, dicObj):
@@ -70,6 +73,38 @@ def col_find(key):
             break
     print(data)
     return data
+
+# 添加一個新的菜單項目
+def add_menu_item(user_id, menu_item):
+    menu_data = menu_col.find_one({'user_id': user_id})
+    if menu_data:
+        # 如果用戶已經有菜單，則添加新的菜單項目
+        if 'menu_items' not in menu_data:
+            menu_data['menu_items'] = []
+        if menu_item not in menu_data['menu_items']:
+            menu_data['menu_items'].append(menu_item)
+            menu_col.update_one({'user_id': user_id}, {'$set': {'menu_items': menu_data['menu_items']}})
+    else:
+        # 如果用戶還沒有菜單，則創建一個新的菜單
+        menu_data = {
+            'user_id': user_id,
+            'menu_items': [menu_item]
+        }
+        menu_col.insert_one(menu_data)
+
+# 刪除一個菜單項目
+def delete_menu_item(user_id, menu_item):
+    menu_data = menu_col.find_one({'user_id': user_id})
+    if menu_data and 'menu_items' in menu_data and menu_item in menu_data['menu_items']:
+        menu_data['menu_items'].remove(menu_item)
+        menu_col.update_one({'user_id': user_id}, {'$set': {'menu_items': menu_data['menu_items']}})
+
+# 獲取用戶的菜單
+def get_user_menu(user_id):
+    menu_data = menu_col.find_one({'user_id': user_id})
+    if menu_data and 'menu_items' in menu_data:
+        return menu_data['menu_items']
+    return []
 
 if __name__ == '__main__':
     print(read_many_datas())
