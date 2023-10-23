@@ -23,9 +23,9 @@ import  os
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi('iGhU1/Rlv9ySiOd8AYgvpzbWkU/QYm4vb208+Sj52xEQmFlIPL8HPusBmwc2wDOkieaTOUCPXBO7oDqkxTAMWNUXRm5uhUiV9tQipn+/eaYBCdA7V5X+//emxrwokGzGD3SBfHCcJI2odm9ejdToZgdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('你的Channel AcessToken')
 # Channel Secret
-handler = WebhookHandler('a67c7851b0b0b079520dc8d4d70c994d')
+handler = WebhookHandler('你的Channel Secret')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -51,6 +51,19 @@ def handle_message(event):
     if '旋轉木馬' in msg:
         message = Carousel_Template()
         line_bot_api.reply_message(event.reply_token, message)
+    
+    elif '查看我的菜單' in msg:
+        user_id = event.source.user_id
+        menu_items = get_user_menu(user_id)
+
+        if menu_items:
+            menu_text = '\n'.join(menu_items)
+            message = TextSendMessage(text=f"你的菜單如下：\n{menu_text}")
+        else:
+            message = TextSendMessage(text="你還沒有新增任何菜單項目。")
+
+        line_bot_api.reply_message(event.reply_token, message)
+
     #======MongoDB操作範例======
 
     elif '@讀取' in msg:
@@ -121,6 +134,12 @@ def handle_postback(event):
             event.reply_token,
             TextSendMessage(text=f"{menu_item_data} 已成功從菜單中刪除。")
         )
+    
+
+
+    
+
+    
 
 import os
 if __name__ == "__main__":
