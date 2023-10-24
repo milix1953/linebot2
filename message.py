@@ -10,7 +10,7 @@ def Carousel_Template():
         template=CarouselTemplate(
             columns=[
                 CarouselColumn(
-                    thumbnail_image_url='https://imgur.com/LqBkxjV',
+                    thumbnail_image_url='https://i.imgur.com/LqBkxjV.jpg',
                     title='清蒸鱈魚',
                     text='急速低溫直送鱈魚片，使用一級醬汁及白醋和些許調味料製成。肉質柔軟細嫩',
                     actions=[
