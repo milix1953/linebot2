@@ -10,7 +10,7 @@ def Carousel_Template():
         template=CarouselTemplate(
             columns=[
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/1.jpg',
+                    thumbnail_image_url='https://imgur.com/LqBkxjV',
                     title='清蒸鱈魚 $350',
                     text='急速低溫直送鱈魚片，使用一級醬汁及白醋和些許調味料製成。肉質柔軟細嫩',
                     actions=[
@@ -25,7 +25,7 @@ def Carousel_Template():
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/2.jpg',
+                    thumbnail_image_url='https://imgur.com/09YTbOs',
                     title='鐵板牛柳 $250',
                     text='嚴選牛肉上等部位，採用鐵板炙燒的方式，使牛肉帶有強烈香氣',
                     actions=[
@@ -40,7 +40,7 @@ def Carousel_Template():
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/3.jpg',
+                    thumbnail_image_url='https://imgur.com/vGrPHVB',
                     title='鳳梨蝦球 $150',
                     text='經典台式菜餚，絕對要嘗試蝦球配上美乃滋的絕佳風味!',
                     actions=[
@@ -55,7 +55,7 @@ def Carousel_Template():
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/4.jpg',
+                    thumbnail_image_url='https://imgur.com/hsv3ksi',
                     title='蝦仁滑蛋 $320',
                     text='入口即化的滑蛋，配上緊緻扎實口感的蝦仁，最後再以蔥花將味道提升到極致',
                     actions=[
@@ -70,7 +70,7 @@ def Carousel_Template():
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/5.jpg',
+                    thumbnail_image_url='https://imgur.com/rSPVnH6',
                     title='蒜泥白肉 $200',
                     text='將白肉沾上一點蒜泥醬，兩者味道完美的結合在一起，而不再只是一塊單調的白肉',
                     actions=[
@@ -85,7 +85,7 @@ def Carousel_Template():
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/6.jpg',
+                    thumbnail_image_url='https://imgur.com/UsIuog4',
                     title='老皮嫩肉 $220',
                     text='金黃色澤的外皮，搭上外酥內軟的口感，讓人一口接一口而欲罷不能',
                     actions=[
@@ -100,7 +100,7 @@ def Carousel_Template():
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/7.jpg',
+                    thumbnail_image_url='https://imgur.com/hg63JXp',
                     title='糖醋里肌 $200',
                     text='先將里肌肉炸熟後，搭上糖醋醬再次回炸，酸酸甜甜的糖醋醬讓里肌肉增加不少風味',
                     actions=[
@@ -115,7 +115,7 @@ def Carousel_Template():
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/8.jpg',
+                    thumbnail_image_url='https://imgur.com/DQlW00U',
                     title='焗烤白菜 $250',
                     text='以焗烤方式在白菜上增加不同的口感，同時在味道上也有更豐富的層次',
                     actions=[
@@ -130,11 +130,11 @@ def Carousel_Template():
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://nfuorderbot.onrender.com/images/9.jpg',
+                    thumbnail_image_url='https://imgur.com/tmEBFiv',
                     title='查看我的菜單',
                     text='來看看您點了甚麼餐點吧',
                     actions=[
-                        MessageAction(
+                        MessageTemplateAction(
                             label="查看我的菜單",
                             text="查看我的菜單"
                         )
